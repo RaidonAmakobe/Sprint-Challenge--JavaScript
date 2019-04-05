@@ -6,8 +6,8 @@
   * The last parameter accepts a callback 
   * In the body of the function return the callback with the two parameters that you created
 */
-const consume = (foo, bar, callback) => {
-  callback(foo, bar);
+const consume = function(foo, bar, callback) {
+  return callback(foo, bar);
 }
 
 
@@ -25,16 +25,15 @@ const multiply = (num, num2) => {
 }
 
 const greeting = (first, last) => {
-  return `Hello ${first} ${last}, nice to meet you!`;
+ return `Hello ${first} ${last}, nice to meet you!`;
 }
 
 
 
-
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-// consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
+ consume(2,2,add); // 4
+ consume(10,16,multiply); // 160
+ consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
