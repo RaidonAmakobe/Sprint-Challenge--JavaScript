@@ -7,14 +7,15 @@
 */
 
 // tyrannosaurus, carnivorous, 7000kg, 12m, Late Cretaceious
-const tyrannosaurus = new Object();
-
-tyrannosuarus = {
+const tyrannosuarus = {
   name: "t-rex",
   diet: "carnivorous",
   weight: "7000kg",
   length: "12m",
-  period: "Late Cretaceious"
+  period: "Late Cretaceious",
+  rawr: function () {
+    console.log("RAWERSRARARWERSARARARRRR!");
+  }
 };
 // stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
 const stegosaurus = {
@@ -38,17 +39,17 @@ const velociraptor = {
 console.log(tyrannosuarus.weight);
 
 // What was the diet of a velociraptor?
-console.log();
+console.log(velociraptor.diet);
 
 // How long was a stegosaurus?
-console.log();
+console.log(stegosaurus.length);
 
 // What time period did tyrannosaurus live in?
-console.log();
+console.log(tyrannosuarus.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+console.log(tyrannosuarus.rawr());
 
 
 // ==== Arrays ====
@@ -69,8 +70,12 @@ const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern 
 /* Request 1: Create a new array called universities that contains all the univeristies in the graduates array.  
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
-const universities = [];
-console.log(universities)
+const universities = graduates.slice();
+let orderedUni = [];
+orderedUni = universities.sort((x, m) => {
+  return x.university > m.university ? 1 : -1;
+})
+console.log(orderedUni);
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. 
 
@@ -78,13 +83,15 @@ The resulting contact information should have a space between the first name and
 Name email@example.com
 
 Log the result of your new array. */
-const contactInfo = [];
+const contactInfo = graduates.map(function(item) {return {'first_name': item.first_name, 'email': item.email} });
+
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
-const uni = [];
+const uni = graduates.filter(function(item) {return item.university.includes("Uni")})
 console.log(uni);
+
 
 
 // ==== ADVANCED Array Methods ====
